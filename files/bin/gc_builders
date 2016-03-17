@@ -3,5 +3,7 @@
 echo "Removing containers $(date)"
 
 # Find builder containers at least a week old and remove them
+docker ps -a -f "name=builder-init-*" | awk '/((7|1[0-9]) days)|week|month/ { print $1 }' | xargs docker rm || true
+docker ps -a -f "name=builder-cloner-*" | awk '/((7|1[0-9]) days)|week|month/ { print $1 }' | xargs docker rm || true
 docker ps -a -f "label=com.codeclimate.role=builder" | awk '/((7|1[0-9]) days)|week|month/ { print $1 }' | xargs docker rm || true
 docker ps -a -f "name=cc-engines-*" | awk '/((7|1[0-9]) days)|week|month/ { print $1 }' | xargs docker rm || true
