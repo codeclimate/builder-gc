@@ -3,5 +3,6 @@ engines:
   shellcheck:
     enabled: true
 ratings:
-  paths: []
+  paths:
+    - files/bin/gc_builders
 exclude_paths: []
