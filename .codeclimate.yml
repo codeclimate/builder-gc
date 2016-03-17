@@ -1,0 +1,8 @@
+---
+engines:
+  shellcheck:
+    enabled: true
+ratings:
+  paths:
+    - files/bin/gc_builders
+exclude_paths: []
