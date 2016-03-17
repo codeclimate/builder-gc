@@ -2,7 +2,6 @@
 
 echo "Removing containers $(date)"
 
-for filter in "name=builder-init-*" "name=builder-cloner-*" "label=com.codeclimate.role=builder" "name=cc-engines-*"
-do
+for filter in "name=builder-init-*" "name=builder-cloner-*" "label=com.codeclimate.role=builder" "name=cc-engines-*"; do
   docker ps -a -f "$filter" | awk '/((7|1[0-9]) days)|week|month/ { print $1 }' | xargs docker rm || true
 done
