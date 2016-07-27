@@ -1,9 +1,9 @@
 # builder-gc
 
-This Docker image is used to clean up Code Climate build containers after 1
-week. It uses a crontab internally. The containers here are Code Climate
-specific, but this can be used as a proof of concept for cleaning up other types
-of containers.
+This Docker image is used to clean up Code Climate build containers after 1 day.
+It uses a crontab internally. The containers here are Code Climate specific, but
+this can be used as a proof of concept for cleaning up other types of
+containers.
 
 ## License
 
