@@ -5,5 +5,5 @@ printf "Removing containers %s\n" "$(date)"
 for filter in "name=builder-init-*" "name=builder-cloner-*" "label=com.codeclimate.role=builder" "name=cc-engines-*"; do
   printf "Removing containers with %s\n" "$filter"
   docker ps -a -f "$filter" | awk '/day|week|month/ { print $1 }' \
-    | xargs --no-run-if-empty docker rm
+    | xargs --max-args 500 --max-procs 0 --no-run-if-empty docker rm
 done
