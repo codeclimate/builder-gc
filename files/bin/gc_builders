@@ -12,7 +12,7 @@ timestamp() {
 
   for filter in "name=builder-*" "label=com.codeclimate.role=builder" "name=cc-engines-*"; do
     printf "Removing containers with %s\n" "$filter"
-    docker ps --all --filter "$filter" --filter "status=exited"| awk '/day|week|month/ { print $1 }' \
+    docker ps --all --filter "$filter" --filter "status=exited" | awk '/day|week|month/ { print $1 }' \
       | xargs --max-args 500 --max-procs 0 --no-run-if-empty docker rm
   done
 } | timestamp
